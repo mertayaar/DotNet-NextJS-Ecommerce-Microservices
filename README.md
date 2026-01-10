@@ -261,11 +261,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-<!-- Update with your information -->
-**Your Name**
+**Mert Ayar**
 
-- GitHub: [@your_username](https://github.com/your_username)
-- LinkedIn: [Your Profile](https://linkedin.com/in/your_profile)
+- GitHub: [@mertayaar](https://github.com/mertayaar)
+- LinkedIn: [LinkedIn Profile](https://linkedin.com/in/mertayaar)
 
 ---
 
