@@ -284,6 +284,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapGet("/Admin", context =>
+    {
+        context.Response.Redirect("/Admin/Statistics");
+        return Task.CompletedTask;
+    });
     
     endpoints.MapControllerRoute(
         name: "Admin",

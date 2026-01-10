@@ -11,7 +11,7 @@ export function Footer() {
         async function loadCategories() {
             try {
                 const data = await fetchCategories();
-                setCategories(data.slice(0, 2)); 
+                setCategories(data.slice(0, 2));
             } catch (err) {
                 console.error("Failed to fetch categories for footer:", err);
             }
@@ -65,10 +65,10 @@ export function Footer() {
 
                 <div className="mt-10 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-muted-foreground">
-                        © 2024 Minimal Store. All rights reserved.
+                        © {new Date().getFullYear()} <a href="https://github.com/mertayaar" target="_blank" rel="noopener noreferrer" className="hover:underline">Mert Ayar</a>. All rights reserved.
                     </p>
                     <div className="flex gap-4">
-                        {}
+                        { }
                     </div>
                 </div>
             </div>

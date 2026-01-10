@@ -29,6 +29,7 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         [Route("Index")]
         public async Task<IActionResult> Index()
         {

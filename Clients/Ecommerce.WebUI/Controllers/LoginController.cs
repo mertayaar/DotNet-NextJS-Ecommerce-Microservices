@@ -49,7 +49,7 @@ namespace Ecommerce.WebUI.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Login", new { area = "" });
         }
     }
 }

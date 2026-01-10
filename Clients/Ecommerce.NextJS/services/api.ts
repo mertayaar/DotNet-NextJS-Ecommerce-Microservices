@@ -20,14 +20,36 @@ export async function authenticatedFetch(
 ): Promise<Response> {
     const url = `${BFF_URL}${endpoint}`;
 
-    const response = await fetch(url, {
+    let response = await fetch(url, {
         ...options,
-        credentials: 'include', 
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
             ...options.headers,
         },
     });
+
+    if (response.status === 401) {
+        try {
+            const refreshResponse = await fetch(`${BFF_URL}/api/auth/refresh`, {
+                method: 'POST',
+                credentials: 'include',
+            });
+
+            if (refreshResponse.ok) {
+                response = await fetch(url, {
+                    ...options,
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers,
+                    },
+                });
+            }
+        } catch (error) {
+            console.error('Token refresh failed', error);
+        }
+    }
 
     return response;
 }

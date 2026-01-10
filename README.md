@@ -86,7 +86,7 @@
 ### Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
-- [Node.js 18+](https://nodejs.org/)
+- [Node.js 22+](https://nodejs.org/)
 - [SQL Server](https://www.microsoft.com/sql-server) (or Docker containers)
 - [MongoDB](https://www.mongodb.com/try/download/community)
 - [Redis](https://redis.io/download/) (for shopping cart)
@@ -199,7 +199,7 @@ Ecommerce/
 
 | Layer | Technology |
 |-------|------------|
-| **Frontend** | Next.js 14, React, Tailwind CSS |
+| **Frontend** | Next.js 16, React, Tailwind CSS |
 | **Admin Panel** | ASP.NET Core MVC, Tailwind CSS |
 | **API Gateway** | Ocelot |
 | **Authentication** | IdentityServer4, JWT, OAuth 2.0 |
