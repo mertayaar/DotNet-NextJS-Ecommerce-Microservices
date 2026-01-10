@@ -2,30 +2,36 @@
 
 > A full-stack e-commerce application built with .NET Microservices, Next.js, and modern cloud technologies.
 
-<!-- 
-===========================================
-📸 SCREENSHOTS SECTION - ADD YOUR IMAGES HERE
-===========================================
-Replace the placeholder comments below with your actual screenshots.
-Use this format: ![Description](./screenshots/your-image.png)
-Create a 'screenshots' folder in the root directory for your images.
--->
+## 📑 Table of Contents
+
+- [📸 Screenshots](#-screenshots)
+- [✨ Features](#-features)
+- [🏗️ Architecture](#️-architecture)
+- [🚀 Getting Started](#-getting-started)
+- [🔑 Default Credentials](#-default-credentials)
+- [🌐 Service Ports](#-service-ports)
+- [📁 Project Structure](#-project-structure)
+- [🛠️ Technologies](#️-technologies)
+- [📝 Configuration](#-configuration)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
 
 ## 📸 Screenshots
 
 ### Customer Frontend (Next.js)
 
-| Home Page | Shop | Cart | Checkout |
-|-----------|----------------|---------------|
-| ![Home Page](./assets/screenshot-homepage.png) | ![Shop](./assets/screenshot-shop.png) | ![Cart](./assets/screenshot-cart.png) | ![Checkout](./assets/screenshot-checkout.png) |
+![Home Page](./assets/screenshot-homepage.png)
+![Shop](./assets/screenshot-shop.png)
+![Cart](./assets/screenshot-cart.png)
+![Checkout](./assets/screenshot-checkout.png)
 
 ### Admin Panel (ASP.NET MVC)
 
-| Dashboard | Products Management |
-|-----------|---------------------|
-| ![Dashboard](./assets/screenshot-admin-dashboard.png) | ![Products Management](./assets/screenshot-admin-product.png) |
+![Dashboard](./assets/screenshot-admin-dashboard.png)
+![Products Management](./assets/screenshot-admin-product.png)
 
-<!-- END SCREENSHOTS SECTION -->
+
 
 ---
 
