@@ -148,6 +148,9 @@ ocelotlink.txt
 # Exclude old/unused service folders
 Clients/Ecommerce.Images.WebUI/
 Services/RabbitMQMessage/
+Services/Payment/
+Services/Review/
+Services/Message/
 
 # Exclude any RAR/ZIP archives
 *.rar

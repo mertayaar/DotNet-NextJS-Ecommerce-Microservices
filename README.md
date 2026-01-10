@@ -43,8 +43,6 @@
 - 🛍️ **Product Catalog** - MongoDB-based product management
 - 🛒 **Shopping Cart** - Redis-backed cart functionality
 - 💳 **Order Management** - Complete order processing workflow
-- 🚚 **Shipping Integration** - Cargo company management
-- 💬 **Customer Reviews** - Product review system
 - 🎫 **Discount Codes** - Coupon and discount management
 - 🖼️ **Cloud Image Storage** - Google Cloud Storage integration
 
@@ -167,10 +165,8 @@
 | Order | 7222 | SQL Server |
 | Cargo | 7223 | SQL Server |
 | Cart | 7224 | Redis |
-| Review | 7225 | SQL Server |
-| Payment | 7226 | SQL Server |
 | Images | 7227 | Google Cloud Storage |
-| Message | 7228 | PostgreSQL |
+
 
 ---
 
@@ -188,10 +184,7 @@ Ecommerce/
 │   ├── Order/                      # Order management (SQL Server)
 │   ├── Cargo/                      # Shipping management
 │   ├── Discount/                   # Coupon codes
-│   ├── Review/                     # Product reviews
-│   ├── Payment/                    # Payment processing
 │   ├── Images/                     # Image upload (GCS)
-│   ├── Message/                    # Messaging (PostgreSQL)
 │   └── BFF/                        # Backend for Frontend
 ├── Gateways/
 │   └── Ecommerce.OcelotGateway/    # Ocelot API Gateway
