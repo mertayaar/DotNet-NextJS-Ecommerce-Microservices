@@ -17,13 +17,13 @@ Create a 'screenshots' folder in the root directory for your images.
 
 | Home Page | Shop | Cart | Checkout |
 |-----------|----------------|---------------|
-| ![Home Page](./assets/home-page.png) | ![Shop](./assets/shop.png) | ![Cart](./assets/cart.png) | ![Checkout](./assets/checkout.png) |
+| ![Home Page](./assets/screenshot-homepage.png) | ![Shop](./assets/screenshot-shop.png) | ![Cart](./assets/screenshot-cart.png) | ![Checkout](./assets/screenshot-checkout.png) |
 
 ### Admin Panel (ASP.NET MVC)
 
 | Dashboard | Products Management |
 |-----------|---------------------|
-| ![Dashboard](./assets/admin-dashboard.png) | ![Products Management](./assets/admin-product.png) |
+| ![Dashboard](./assets/screenshot-admin-dashboard.png) | ![Products Management](./assets/screenshot-admin-product.png) |
 
 <!-- END SCREENSHOTS SECTION -->
 
