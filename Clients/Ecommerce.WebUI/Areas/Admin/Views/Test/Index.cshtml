@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+
+<div class="content">
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <script type="text/javascript">
+                    $(document).ready(() => {
+
+                        var connection = new signalR.HubConnectionBuilder()
+                            .withUrl("https://localhost:7265/EcommerceHub")
+                            .build();
+
+                        $("#connstatus").text(connection.state);
+
+                        connection.on("ReceiveReviewCount", (value) => {
+                            $("#reviewcount").text(value);
+                        });
+
+                        connection.start()
+                            .then(() => {
+                                $("#connstatus").text(connection.state);
+                                return connection.invoke("SendStatisticCount");
+                            })
+                            .catch(err => console.error(err.toString()));
+
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="card-body p-0">
+                    <div class="col-md-8 offset-2">
+                        <div class="alert alert-primary">Connection Status = <strong id="connstatus"></strong></div>
+                        <div class="alert alert-primary">Review Count = <strong id="reviewcount"></strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

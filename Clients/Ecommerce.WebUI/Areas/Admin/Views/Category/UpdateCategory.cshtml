@@ -1,0 +1,38 @@
+﻿@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "Update Category";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="space-y-6">
+    <div class="page-header">
+        <h1 class="page-title">Update Category</h1>
+        <a href="/Admin/Category/Index" class="btn-modern btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to List
+        </a>
+    </div>
+
+    <div class="card" style="max-width: 600px;">
+        <div class="p-6">
+            <form method="post" class="space-y-4">
+                <input type="hidden" asp-for="CategoryId" />
+                
+                <div class="form-group">
+                    <label class="form-label" for="CategoryName">Category Name</label>
+                    <input type="text" class="form-input" asp-for="CategoryName" placeholder="Enter category name" />
+                </div>
+                
+
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="btn-modern btn-primary">
+                        <i class="fa-solid fa-save"></i>
+                        Update Category
+                    </button>
+                    <a href="/Admin/Category/Index" class="btn-modern btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

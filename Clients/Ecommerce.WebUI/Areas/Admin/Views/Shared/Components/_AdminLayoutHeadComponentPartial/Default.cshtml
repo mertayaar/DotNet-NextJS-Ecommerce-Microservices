@@ -1,0 +1,380 @@
+﻿<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecommerce Admin Panel</title>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        border: 'hsl(214.3 31.8% 91.4%)',
+                        input: 'hsl(214.3 31.8% 91.4%)',
+                        ring: 'hsl(222.2 84% 4.9%)',
+                        background: 'hsl(0 0% 100%)',
+                        foreground: 'hsl(222.2 84% 4.9%)',
+                        primary: {
+                            DEFAULT: 'hsl(222.2 47.4% 11.2%)',
+                            foreground: 'hsl(210 40% 98%)',
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(210 40% 96.1%)',
+                            foreground: 'hsl(222.2 47.4% 11.2%)',
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(210 40% 96.1%)',
+                            foreground: 'hsl(215.4 16.3% 46.9%)',
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(0 84.2% 60.2%)',
+                            foreground: 'hsl(210 40% 98%)',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(0 0% 100%);
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .card-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+        
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: hsl(215.4 16.3% 46.9%);
+        }
+        
+        
+        .modern-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        
+        .modern-table thead {
+            border-bottom: 1px solid hsl(214.3 31.8% 91.4%);
+        }
+        
+        .modern-table th {
+            height: 3rem;
+            padding: 0 1rem;
+            text-align: left;
+            font-weight: 500;
+            color: hsl(215.4 16.3% 46.9%);
+        }
+        
+        .modern-table tbody tr {
+            border-bottom: 1px solid hsl(214.3 31.8% 91.4%);
+            transition: background-color 0.15s;
+        }
+        
+        .modern-table tbody tr:hover {
+            background-color: hsl(210 40% 96.1%);
+        }
+        
+        .modern-table td {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+        
+        
+        .btn-modern {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.15s;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: hsl(222.2 47.4% 11.2%);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: hsl(222.2 47.4% 20%);
+        }
+        
+        .btn-secondary {
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 47.4% 11.2%);
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+        }
+        
+        .btn-secondary:hover {
+            background-color: hsl(210 40% 90%);
+        }
+        
+        .btn-destructive {
+            background-color: hsl(0 84.2% 60.2%);
+            color: white;
+            border: none;
+        }
+        
+        .btn-destructive:hover {
+            background-color: hsl(0 84.2% 50%);
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            border: none;
+            color: hsl(215.4 16.3% 46.9%);
+            padding: 0.5rem;
+        }
+        
+        .btn-ghost:hover {
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .btn-icon {
+            width: 2rem;
+            height: 2rem;
+            padding: 0;
+            border-radius: 0.375rem;
+        }
+        
+        
+        .modern-sidebar {
+            width: 16rem;
+            background-color: hsl(210 40% 98%);
+            border-right: 1px solid hsl(214.3 31.8% 91.4%);
+            min-height: calc(100vh - 4rem);
+            padding: 1.5rem;
+        }
+        
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            color: hsl(215.4 16.3% 46.9%);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        
+        .sidebar-link:hover {
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .sidebar-link.active {
+            background-color: hsl(210 40% 96.1%);
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .sidebar-link i {
+            width: 1rem;
+            height: 1rem;
+            font-size: 0.875rem;
+        }
+
+        
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        @@media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @@media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        
+        .table-img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.375rem;
+            object-fit: cover;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+        }
+        
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: hsl(222.2 84% 4.9%);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: hsl(222.2 47.4% 11.2%);
+            box-shadow: 0 0 0 2px hsla(222.2, 47.4%, 11.2%, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: hsl(215.4 16.3% 46.9%);
+        }
+        
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+        
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        .gap-1 { gap: 0.25rem; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+        
+        .p-6 { padding: 1.5rem; }
+        .pt-4 { padding-top: 1rem; }
+        
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        
+        .justify-end { justify-content: flex-end; }
+        
+        .font-medium { font-weight: 500; }
+        .text-muted-foreground { color: hsl(215.4 16.3% 46.9%); }
+        .text-destructive { color: hsl(0 84.2% 60.2%); }
+        .text-right { text-align: right; }
+        
+        @@media (min-width: 768px) {
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background-color: hsl(142 76% 90%);
+            color: hsl(142 76% 36%);
+        }
+        
+        .status-pending {
+            background-color: hsl(48 96% 89%);
+            color: hsl(32 95% 44%);
+        }
+    </style>
+</head>
+

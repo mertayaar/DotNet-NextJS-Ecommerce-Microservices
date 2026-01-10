@@ -1,0 +1,51 @@
+﻿@model UpdateOfferDiscountDto
+@{
+    ViewData["Title"] = "Update Offer Discount";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="space-y-6">
+    <div class="page-header">
+        <h1 class="page-title">Update Discount Offer</h1>
+        <a href="/Admin/OfferDiscount/Index" class="btn-modern btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to List
+        </a>
+    </div>
+
+    <div class="card p-6" style="max-width: 800px;">
+        <form method="post" class="space-y-6">
+            <input type="hidden" asp-for="OfferDiscountId" />
+            
+            <div class="space-y-4">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" asp-for="Title" placeholder="Enter title e.g. Summer Sale" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Subtitle</label>
+                    <input type="text" class="form-input" asp-for="Subtitle" placeholder="Enter subtitle" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Button Text</label>
+                    <input type="text" class="form-input" asp-for="ButtonTitle" placeholder="e.g. Shop Now" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Image URL</label>
+                    <input type="text" class="form-input" asp-for="ImageUrl" placeholder="Enter image URL" />
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-4">
+                <button type="submit" class="btn-modern btn-primary">
+                    <i class="fa-solid fa-save"></i>
+                    Update Discount
+                </button>
+                <a href="/Admin/OfferDiscount/Index" class="btn-modern btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model List<ResultUserDto>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <a href="/Admin/Product/CreateProduct/" class="btn btn-light"><i class="fa fa-plus me-1"></i>Add Product</a>
+                <div class="card-body p-0">
+                    <table class="table table-hover table-striped align-middle mb-0 ">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 120px;">Image</th>
+                                <th>Name Surname</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th style="width: 240px;">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row">@count</th>
+                                    <td>@item.name</td>
+                                    <td>@item.userName</td>
+                                    <td>@item.email</td>
+                                    <td>
+                                        <a href="/Admin/User/UserAddressInfo/@item.id" class="btn btn-warning me-2"><i class="fa fa-pencil"></i> Address Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

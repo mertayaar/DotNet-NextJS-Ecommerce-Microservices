@@ -1,0 +1,6 @@
+@Ecommerce.BFF_HostAddress = http://localhost:5230
+
+GET {{Ecommerce.BFF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

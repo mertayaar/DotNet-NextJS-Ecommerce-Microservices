@@ -1,0 +1,6 @@
+@Ecommerce.Cargo.WebAPI_HostAddress = http://localhost:5124
+
+GET {{Ecommerce.Cargo.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

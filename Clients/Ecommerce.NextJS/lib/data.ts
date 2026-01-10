@@ -1,0 +1,73 @@
+export const categories = [
+    { id: "all", name: "All Products" },
+    { id: "clothing", name: "Clothing" },
+    { id: "accessories", name: "Accessories" },
+    { id: "home", name: "Home" },
+]
+
+export const products = [
+    {
+        id: 1,
+        name: "Classic Minimalism Tee",
+        price: 35.00,
+        category: "clothing",
+        image: "/images/classic-minimalism-tee.jpg",
+        description: "A timeless classic. This minimalism tee is crafted from 100% organic cotton, offering breathable comfort and a perfect fit for any occasion.",
+    },
+    {
+        id: 2,
+        name: "Essential Hoodie",
+        price: 85.00,
+        category: "clothing",
+        image: "/images/essential-hoodie.png",
+        description: "The ultimate everyday hoodie. Soft, durable, and designed with a relaxed fit. Perfect for layering or wearing on its own.",
+    },
+    {
+        id: 3,
+        name: "Urban Tote Bag",
+        price: 45.00,
+        category: "accessories",
+        image: "/images/urban-tote-bag.jpg",
+        description: "Carry your essentials in style. This tote bag features sturdy handles and a spacious interior, making it ideal for work, shopping, or travel.",
+    },
+    {
+        id: 4,
+        name: "Monochrome Cap",
+        price: 25.00,
+        category: "accessories",
+        image: "/images/monochrome-cap.jpg",
+        description: "Top off your look with this sleek monochrome cap. Adjustable strap ensures a comfortable fit for all day wear.",
+    },
+    {
+        id: 5,
+        name: "Everyday Socks",
+        price: 15.00,
+        category: "clothing",
+        image: "/images/everyday-socks.jpg",
+        description: "Comfort tailored for your feet. These everyday socks are made from a soft blend enabling durability and all-day freshness.",
+    },
+    {
+        id: 6,
+        name: "Ceramic Mug",
+        price: 22.00,
+        category: "home",
+        image: "/images/ceramic-mug.jpg",
+        description: "Elevate your morning routine. This ceramic mug features a minimalist design and a comfortable handle for your favorite hot beverages.",
+    },
+    {
+        id: 7,
+        name: "Leather Wallet",
+        price: 55.00,
+        category: "accessories",
+        image: "/images/leather-wallet.png",
+        description: "Crafted from genuine leather, this wallet combines slim profile with maximum storage. Ages beautifully over time.",
+    },
+    {
+        id: 8,
+        name: "Denim Jacket",
+        price: 120.00,
+        category: "clothing",
+        image: "/images/denim-jacket.png",
+        description: "A wardrobe staple. This classic denim jacket offers a rugged yet refined look that pairs perfectly with almost anything.",
+    },
+]

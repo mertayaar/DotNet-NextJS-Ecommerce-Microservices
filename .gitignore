@@ -1,0 +1,156 @@
+# ==================================================
+# OPERATING SYSTEM
+# ==================================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# ==================================================
+# IDE / EDITOR
+# ==================================================
+.vs/
+.vscode/
+.idea/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+_ReSharper*/
+*.DotSettings.user
+
+# ==================================================
+# BUILD OUTPUT
+# ==================================================
+bin/
+obj/
+out/
+[Tt]emp/
+[Tt]empPublish/
+publish/
+dist/
+build/
+TestResults/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdf
+*.ldf
+
+# ==================================================
+# NUGET PACKAGES
+# ==================================================
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ==================================================
+# CREDENTIALS & SECRETS (CRITICAL!)
+# ==================================================
+# Environment files (contain passwords, API keys)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ASP.NET Core configuration (contain connection strings, secrets)
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+!appsettings.json.example
+
+# Google Cloud / AWS / Azure credentials
+credentials/
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!next.config.js
+!*.csproj
+secrets/
+*.pem
+*.key
+*.pfx
+*.p12
+
+# User secrets (ASP.NET Core)
+secrets.json
+
+# ==================================================
+# NEXT.JS / NODE.JS
+# ==================================================
+.next/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# ==================================================
+# LOGS
+# ==================================================
+*.log
+logs/
+*.log.*
+
+# ==================================================
+# TEST & COVERAGE
+# ==================================================
+coverage/
+*.coverage
+*.coveragexml
+lcov-info/
+
+# ==================================================
+# USER-SPECIFIC / TEMP
+# ==================================================
+*.rsuser
+*.bak
+*.tmp
+*.temp
+Users.txt
+loginindex.txt
+OcelotCodeExample.txt
+ocelotlink.txt
+
+# ==================================================
+# WWWROOT USER UPLOADS
+# ==================================================
+# Ignore user-uploaded content in wwwroot (product images, etc.)
+# Static assets (CSS, JS, templates) should remain tracked
+**/wwwroot/images/
+**/wwwroot/uploads/
+**/wwwroot/files/
+**/wwwroot/colorlib-regform-30/
+**/wwwroot/ecommerce-template/
+
+# ==================================================
+# PROJECT-SPECIFIC EXCLUSIONS
+# ==================================================
+# Exclude old/unused service folders
+Clients/Ecommerce.Images.WebUI/
+Services/RabbitMQMessage/
+
+# Exclude any RAR/ZIP archives
+*.rar
+*.zip
+*.7z
+*.tar.gz

@@ -1,0 +1,72 @@
+﻿@model UpdateReviewDto
+@{
+    ViewData["Title"] = "Update Review";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="space-y-6">
+    <div class="page-header">
+        <h1 class="page-title">Update Customer Review</h1>
+        <a href="/Admin/Review/Index" class="btn-modern btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to List
+        </a>
+    </div>
+
+    <div class="card p-6" style="max-width: 800px;">
+        <form method="post" class="space-y-6">
+            <input type="hidden" asp-for="ProductId" />
+            <input type="hidden" asp-for="UserReviewId" />
+            
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">Customer Name</label>
+                        <input type="text" class="form-input" asp-for="NameSurname" readonly class="bg-secondary" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" asp-for="Email" readonly class="bg-secondary" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">Review Date</label>
+                        <input type="date" class="form-input" asp-for="CreatedDate" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rating (1-5)</label>
+                        <div class="flex items-center gap-2">
+                             <input type="number" class="form-input w-24" asp-for="Rating" min="1" max="5" />
+                             <div class="text-yellow-400">
+                                 @for(int i=0; i<5; i++) { <i class="fa-solid fa-star text-sm"></i> }
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Profile Image URL</label>
+                    <input type="text" class="form-input" asp-for="ImageUrl" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Review Content</label>
+                    <textarea class="form-input min-h-[120px]" asp-for="ReviewDetail"></textarea>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-4">
+                <button type="submit" class="btn-modern btn-primary">
+                    <i class="fa-solid fa-save"></i>
+                    Update Review
+                </button>
+                <a href="/Admin/Review/Index" class="btn-modern btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+

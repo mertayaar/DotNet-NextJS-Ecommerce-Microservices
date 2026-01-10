@@ -1,0 +1,57 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "Add Product";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="space-y-6">
+    <div class="page-header">
+        <h1 class="page-title">Add Product</h1>
+        <a href="/Admin/Product/ProductListWithCategory" class="btn-modern btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to List
+        </a>
+    </div>
+
+    <div class="card" style="max-width: 800px;">
+        <div class="p-6">
+            <form method="post" enctype="multipart/form-data" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label" for="ProductName">Product Name</label>
+                        <input type="text" class="form-input" asp-for="ProductName" placeholder="Enter product name" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="ProductPrice">Price</label>
+                        <input type="text" class="form-input" asp-for="ProductPrice" placeholder="0.00" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="ProductImage">Product Image</label>
+                    <input type="file" class="form-input file-input" name="ProductImage" accept="image/*" />
+                    <p class="text-muted-foreground text-sm" style="margin-top: 0.25rem;">Supported formats: JPG, PNG, GIF</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="CategoryId">Category</label>
+                    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.CategoryValues, new { @class = "form-input" })
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="ProductDescription">Description</label>
+                    <textarea class="form-input" asp-for="ProductDescription" rows="4" placeholder="Enter product description"></textarea>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="btn-modern btn-primary">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Product
+                    </button>
+                    <a href="/Admin/Product/ProductListWithCategory" class="btn-modern btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

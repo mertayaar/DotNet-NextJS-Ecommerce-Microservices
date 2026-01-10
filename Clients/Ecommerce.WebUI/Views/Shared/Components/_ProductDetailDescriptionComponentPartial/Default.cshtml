@@ -1,0 +1,7 @@
+﻿@using Ecommerce.WebUI.Services.LocalizationServices
+@model GetByIdProductDetailDto
+@inject ILocalizationService localizer
+<div class="tab-pane fade show active" id="tab-pane-1">
+    <h4 class="mb-3">@localizer.GetLocalizeString("Product Description")</h4>
+    <p>@Model.ProductDescription
+    </div>

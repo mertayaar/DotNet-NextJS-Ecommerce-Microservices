@@ -1,0 +1,33 @@
+﻿<header class="h-16 border-b border-border bg-white flex items-center justify-between px-4 sticky top-0 z-50">
+    
+    <div class="flex items-center gap-4">
+        
+        <button id="sidebarToggle" class="p-2 rounded-md hover:bg-secondary text-foreground lg:hidden">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+
+        
+        <a href="/Admin/Statistics/Index" class="flex items-center gap-2 font-bold text-xl tracking-tight">
+           Ecommerce Admin
+        </a>
+    </div>
+
+    
+    <div class="flex items-center gap-4">
+        
+    </div>
+</header>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('aside'); 
+        
+        if(toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+        }
+    });
+</script>

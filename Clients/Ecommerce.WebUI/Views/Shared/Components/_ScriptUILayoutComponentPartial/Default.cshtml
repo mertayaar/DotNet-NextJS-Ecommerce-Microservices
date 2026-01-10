@@ -1,0 +1,34 @@
+﻿<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/ecommerce-template/lib/easing/easing.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".vendor-carousel").owlCarousel({
+            loop: true,
+            margin: 15,
+            nav: false,  
+            dots: false, 
+            autoplay: true,
+            smartSpeed: 1000,
+            responsive:{
+                0:{ items:2 },
+                576:{ items:3 },
+                768:{ items:4 },
+                992:{ items:5 },
+                1200:{ items:6 }
+            }
+        });
+    });
+</script>
+
+<script src="~/ecommerce-template/mail/jqBootstrapValidation.min.js"></script>
+<script src="~/ecommerce-template/mail/contact.js"></script>
+
+
+<script src="~/ecommerce-template/js/main.js"></script>

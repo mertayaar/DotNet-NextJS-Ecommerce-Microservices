@@ -1,0 +1,40 @@
+﻿@model List<ResultFeatureDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <a href="/Admin/Feature/CreateFeature/" class="btn btn-light"><i class="fa fa-plus me-1"></i>Add Feature</a>
+                <div class="card-body p-0">
+                    <table class="table table-hover table-striped align-middle mb-0 ">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 120px;">Icon</th>
+                                <th>Feature Title</th>
+                                <th style="width: 240px;">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Icon</td>
+                                    <td>@item.Title</td>
+                                    <td>
+                                        <a href="/Admin/Feature/UpdateFeature/@item.FeatureId" class="btn btn-warning me-2"><i class="fa fa-pencil"></i> Update</a>
+                                        <a href="/Admin/Feature/DeleteFeature/@item.FeatureId" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this feature?');"><i class="fa fa-trash"></i> Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

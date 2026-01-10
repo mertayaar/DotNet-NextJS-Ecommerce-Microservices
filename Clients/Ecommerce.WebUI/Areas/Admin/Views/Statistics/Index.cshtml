@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="space-y-8">
+    <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+    </div>
+
+    
+    <div class="stats-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Total Categories</span>
+                <i class="fa-solid fa-list text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.categoryCount</div>
+                <p class="card-subtitle">Product categories</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Total Products</span>
+                <i class="fa-solid fa-box text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.productCount</div>
+                <p class="card-subtitle">Active products</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Top Priced Product</span>
+                <i class="fa-solid fa-arrow-up text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value text-lg">@ViewBag.maxPriceProductName</div>
+                <p class="card-subtitle">Highest price item</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Budget Friendly</span>
+                <i class="fa-solid fa-arrow-down text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value text-lg">@ViewBag.minPriceProductName</div>
+                <p class="card-subtitle">Lowest price item</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="stats-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Average Price</span>
+                <i class="fa-solid fa-dollar-sign text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">$@ViewBag.productAvgPrice</div>
+                <p class="card-subtitle">Product average</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Total Vendors</span>
+                <i class="fa-solid fa-building text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.brandCount</div>
+                <p class="card-subtitle">Sponsor brands</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Total Users</span>
+                <i class="fa-solid fa-users text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.userCount</div>
+                <p class="card-subtitle">Registered users</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Total Reviews</span>
+                <i class="fa-solid fa-star text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.reviewCount</div>
+                <p class="card-subtitle">Customer reviews</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="stats-grid">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Active Reviews</span>
+                <i class="fa-solid fa-check-circle text-green-500"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.activeReviewCount</div>
+                <p class="card-subtitle">Approved reviews</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Pending Reviews</span>
+                <i class="fa-solid fa-clock text-yellow-500"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.passiveReviewCount</div>
+                <p class="card-subtitle">Awaiting approval</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Discount Coupons</span>
+                <i class="fa-solid fa-percent text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.discountCouponCount</div>
+                <p class="card-subtitle">Active coupons</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Messages</span>
+                <i class="fa-solid fa-envelope text-muted-foreground"></i>
+            </div>
+            <div class="card-content">
+                <div class="card-value">@ViewBag.messageCount</div>
+                <p class="card-subtitle">Customer messages</p>
+            </div>
+        </div>
+    </div>
+</div>
