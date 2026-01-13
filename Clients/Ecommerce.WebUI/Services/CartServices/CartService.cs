@@ -57,7 +57,7 @@ namespace Ecommerce.WebUI.Services.CartServices
 
         public async Task SaveCart(CartTotalDto cartTotalDto)
         {
-           await _httpClient.PostAsJsonAsync<CartTotalDto>("carts", cartTotalDto);
+            await _httpClient.PostAsJsonAsync<CartTotalDto>("carts", cartTotalDto);
         }
     }
 }

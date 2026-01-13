@@ -39,16 +39,14 @@ namespace Ecommerce.WebUI.Services.CatalogServices.ProductImageSevices
         public async Task<GetByIdProductImageDto> GetByProductIdProductImageAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("productimages/ProductImagesByProductId/" + id);
-            var values = await responseMessage.Content.ReadFromJsonAsync<ApiResponse<GetByIdProductImageDto>> ();
+            var values = await responseMessage.Content.ReadFromJsonAsync<ApiResponse<GetByIdProductImageDto>>();
             return values.Data;
         }
-      
 
         public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
             await _httpClient.PutAsJsonAsync<UpdateProductImageDto>("productimages", updateProductImageDto);
         }
 
-    
     }
 }

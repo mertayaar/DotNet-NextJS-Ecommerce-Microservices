@@ -10,13 +10,6 @@ using System.Text.Json.Serialization;
 
 namespace Ecommerce.WebUI.Services.Concrete
 {
-    
-    
-    
-    
-    
-    
-    
     public class IdentityService : IIdentityService
     {
         private readonly HttpClient _httpClient;
@@ -25,7 +18,7 @@ namespace Ecommerce.WebUI.Services.Concrete
         private const string BFF_SESSION_COOKIE = "webui_bff_session";
 
         public IdentityService(
-            HttpClient httpClient, 
+            HttpClient httpClient,
             IHttpContextAccessor httpContextAccessor,
             IConfiguration configuration)
         {
@@ -44,12 +37,12 @@ namespace Ecommerce.WebUI.Services.Concrete
 
             try
             {
-                var bffUrl = _configuration["ServiceApiSettings:BffUrl"] ?? "http://localhost:5500";
+                var bffUrl = _configuration["ServiceApiSettings:BffUrl"];
                 var request = new { sessionId = sessionId };
                 var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
-                
+
                 var response = await _httpClient.PostAsync($"{bffUrl}/auth/get-token", content);
-                
+
                 if (!response.IsSuccessStatusCode)
                 {
                     return false;
@@ -60,7 +53,7 @@ namespace Ecommerce.WebUI.Services.Concrete
 
                 if (tokenData != null && !string.IsNullOrEmpty(tokenData.AccessToken))
                 {
-                    
+
                     var authResult = await _httpContextAccessor.HttpContext!.AuthenticateAsync();
                     if (authResult.Succeeded)
                     {
@@ -85,10 +78,10 @@ namespace Ecommerce.WebUI.Services.Concrete
             }
         }
 
-        public async Task<bool> SignIn(SignInDto signInDto)
+        public async Task<(bool IsSuccess, string ErrorMessage)> SignIn(SignInDto signInDto)
         {
-            var bffUrl = _configuration["ServiceApiSettings:BffUrl"] ?? "http://localhost:5500";
-            
+            var bffUrl = _configuration["ServiceApiSettings:BffUrl"];
+
             var loginRequest = new
             {
                 username = signInDto.Username,
@@ -100,11 +93,19 @@ namespace Ecommerce.WebUI.Services.Concrete
                 Encoding.UTF8,
                 "application/json");
 
-            var response = await _httpClient.PostAsync($"{bffUrl}/auth/admin-login", content);
+            HttpResponseMessage response;
+            try
+            {
+                response = await _httpClient.PostAsync($"{bffUrl}/auth/admin-login", content);
+            }
+            catch (Exception)
+            {
+                return (false, "We are currently experiencing technical issues. Please try again later.");
+            }
 
             if (!response.IsSuccessStatusCode)
             {
-                return false;
+                return (false, "Invalid username or password.");
             }
 
             var responseContent = await response.Content.ReadAsStringAsync();
@@ -112,22 +113,20 @@ namespace Ecommerce.WebUI.Services.Concrete
 
             if (loginResponse == null || !loginResponse.Success || string.IsNullOrEmpty(loginResponse.SessionId))
             {
-                return false;
+                return (false, "An unexpected error occurred. Please try again.");
             }
 
-            
             _httpContextAccessor.HttpContext!.Response.Cookies.Append(
-                BFF_SESSION_COOKIE,
-                loginResponse.SessionId,
-                new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = false, 
-                    SameSite = SameSiteMode.Lax,
-                    MaxAge = TimeSpan.FromDays(30)
-                });
+                            BFF_SESSION_COOKIE,
+                            loginResponse.SessionId,
+                            new CookieOptions
+                            {
+                                HttpOnly = true,
+                                Secure = false,
+                                SameSite = SameSiteMode.Lax,
+                                MaxAge = TimeSpan.FromDays(30)
+                            });
 
-            
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, loginResponse.User?.Sub ?? ""),
@@ -136,7 +135,6 @@ namespace Ecommerce.WebUI.Services.Concrete
                 new Claim("bff_session", loginResponse.SessionId)
             };
 
-            
             if (loginResponse.User?.Roles != null)
             {
                 foreach (var role in loginResponse.User.Roles)
@@ -154,9 +152,8 @@ namespace Ecommerce.WebUI.Services.Concrete
                 ExpiresUtc = loginResponse.ExpiresAt
             };
 
-            
             authProperties.StoreTokens(new[]
-            {
+                        {
                 new AuthenticationToken { Name = "access_token", Value = loginResponse.SessionId }
             });
 
@@ -165,22 +162,20 @@ namespace Ecommerce.WebUI.Services.Concrete
                 claimsPrincipal,
                 authProperties);
 
-            return true;
+            return (true, string.Empty);
         }
 
         private string? GetBffSessionId()
         {
-            
+
             if (_httpContextAccessor.HttpContext!.Request.Cookies.TryGetValue(BFF_SESSION_COOKIE, out var sessionId))
             {
                 return sessionId;
             }
 
-            
             return _httpContextAccessor.HttpContext.User.FindFirst("bff_session")?.Value;
         }
 
-        
         private class AdminLoginResponse
         {
             [JsonPropertyName("success")]

@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Category")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Category")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -34,7 +35,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View(values);
         }
 
-
         [HttpGet]
         [Route("CreateCategory")]
 
@@ -51,7 +51,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         {
             await _categoryService.CreateCategoryAsync(createCategoryDto);
             return RedirectToAction("Index", "Category", new { area = "Admin" });
-
 
         }
 

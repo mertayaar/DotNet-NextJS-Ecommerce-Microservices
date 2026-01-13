@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Feature")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Feature")]
     public class FeatureController : Controller
     {
         private readonly IFeatureService _featureService;
@@ -30,11 +31,9 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         {
             FeatureViewBagList();
 
-
             var values = await _featureService.GetAllFeatureAsync();
             return View(values);
         }
-
 
         [HttpGet]
         [Route("CreateFeature")]

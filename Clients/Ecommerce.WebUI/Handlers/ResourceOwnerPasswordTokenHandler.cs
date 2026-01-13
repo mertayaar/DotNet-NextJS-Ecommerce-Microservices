@@ -8,12 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Ecommerce.WebUI.Handlers
 {
-    
-    
-    
-    
-    
-    
+
     public class ResourceOwnerPasswordTokenHandler : DelegatingHandler
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -23,7 +18,7 @@ namespace Ecommerce.WebUI.Handlers
         private const string BFF_SESSION_COOKIE = "webui_bff_session";
 
         public ResourceOwnerPasswordTokenHandler(
-            IHttpContextAccessor httpContextAccessor, 
+            IHttpContextAccessor httpContextAccessor,
             IIdentityService identityService,
             IConfiguration configuration,
             IHttpClientFactory httpClientFactory)
@@ -36,9 +31,9 @@ namespace Ecommerce.WebUI.Handlers
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            
+
             var accessToken = await GetAccessTokenFromBff();
-            
+
             if (!string.IsNullOrEmpty(accessToken))
             {
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -46,7 +41,6 @@ namespace Ecommerce.WebUI.Handlers
 
             var response = await base.SendAsync(request, cancellationToken);
 
-            
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 var refreshed = await _identityService.GetRefreshToken();
@@ -79,7 +73,7 @@ namespace Ecommerce.WebUI.Handlers
 
             try
             {
-                var bffUrl = _configuration["ServiceApiSettings:BffUrl"] ?? "http://localhost:5500";
+                var bffUrl = _configuration["ServiceApiSettings:BffUrl"];
                 var client = _httpClientFactory.CreateClient();
 
                 var requestBody = new { sessionId = sessionId };
@@ -108,13 +102,12 @@ namespace Ecommerce.WebUI.Handlers
 
         private string? GetBffSessionId()
         {
-            
+
             if (_httpContextAccessor.HttpContext!.Request.Cookies.TryGetValue(BFF_SESSION_COOKIE, out var sessionId))
             {
                 return sessionId;
             }
 
-            
             return _httpContextAccessor.HttpContext.User.FindFirst("bff_session")?.Value;
         }
 

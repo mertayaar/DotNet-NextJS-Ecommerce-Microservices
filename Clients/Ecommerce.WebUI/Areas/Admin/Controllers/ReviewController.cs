@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Review")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Review")]
     public class ReviewController : Controller
     {
         private readonly IReviewService _reviewService;
@@ -30,8 +31,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View(reviewList);
 
         }
-
-
 
         [Route("DeleteReview/{id}")]
 

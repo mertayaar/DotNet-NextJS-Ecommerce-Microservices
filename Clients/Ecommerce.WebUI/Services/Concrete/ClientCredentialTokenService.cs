@@ -6,7 +6,6 @@ using Microsoft.Extensions.Caching.Memory;
 
 using Microsoft.Extensions.Options;
 
-
 namespace Ecommerce.WebUI.Services.Concrete
 
 {
@@ -23,7 +22,6 @@ namespace Ecommerce.WebUI.Services.Concrete
 
         private readonly ClientSettings _clientSettings;
 
-
         public ClientCredentialTokenService(IOptions<ServiceApiSettings> serviceApiSettings, HttpClient httpClient, IMemoryCache memoryCache, IOptions<ClientSettings> clientSettings)
         {
             _serviceApiSettings = serviceApiSettings.Value;
@@ -31,7 +29,6 @@ namespace Ecommerce.WebUI.Services.Concrete
             _memoryCache = memoryCache;
             _clientSettings = clientSettings.Value;
         }
-
 
         public async Task<string> GetToken()
         {
@@ -56,7 +53,6 @@ namespace Ecommerce.WebUI.Services.Concrete
                 Address = discoveryEndPoint.TokenEndpoint,
                 Scope = "catalog.read catalog.write discount.read discount.write review.read review.write order.read order.write order.admin cargo.read cargo.write message.read message.write image.read image.upload cart.manage IdentityServerApi"
             };
-
 
             var tokenResponse = await _httpClient.RequestClientCredentialsTokenAsync(clientCredentialTokenRequest);
             if (tokenResponse.IsError)

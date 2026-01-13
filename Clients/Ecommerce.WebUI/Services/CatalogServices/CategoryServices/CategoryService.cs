@@ -14,19 +14,19 @@ namespace Ecommerce.WebUI.Services.CatalogServices.CategoryServices
 
         public async Task CreateCategoryAsync(CreateCategoryDto createCategoryDto)
         {
-            await  _httpClient.PostAsJsonAsync<CreateCategoryDto>("categories", createCategoryDto);
+            await _httpClient.PostAsJsonAsync<CreateCategoryDto>("categories", createCategoryDto);
         }
 
         public async Task DeleteCategoryAsync(string id)
         {
-           await  _httpClient.DeleteAsync("categories?id="+id);
+            await _httpClient.DeleteAsync("categories?id=" + id);
         }
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
-          var responseMessage =  await _httpClient.GetAsync("categories");
-          var apiResponse = await responseMessage.Content.ReadFromJsonAsync<ApiResponse<List<ResultCategoryDto>>>();
-          return apiResponse?.Data ?? new List<ResultCategoryDto>();
+            var responseMessage = await _httpClient.GetAsync("categories");
+            var apiResponse = await responseMessage.Content.ReadFromJsonAsync<ApiResponse<List<ResultCategoryDto>>>();
+            return apiResponse?.Data ?? new List<ResultCategoryDto>();
         }
 
         public async Task<UpdateCategoryDto> GetByIdCategoryAsync(string id)

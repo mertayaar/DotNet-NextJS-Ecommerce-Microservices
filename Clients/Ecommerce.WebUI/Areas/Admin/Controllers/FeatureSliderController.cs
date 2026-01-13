@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
-﻿using Ecommerce.DtoLayer.CatalogDtos.FeatureSliderDtos;
+using Ecommerce.DtoLayer.CatalogDtos.FeatureSliderDtos;
 using Ecommerce.WebUI.Services.CatalogServices.SliderServices;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/FeatureSlider")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/FeatureSlider")]
 
     public class FeatureSliderController : Controller
     {
@@ -34,7 +35,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             var values = await _featureSliderService.GetAllFeatureSliderAsync();
             return View(values);
         }
-
 
         [HttpGet]
         [Route("CreateFeatureSlider")]

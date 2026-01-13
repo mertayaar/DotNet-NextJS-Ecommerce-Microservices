@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/SpecialOffer")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/SpecialOffer")]
     public class SpecialOfferController : Controller
     {
         private readonly ISpecialOfferService _specialOfferService;
@@ -28,12 +29,11 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-           SpecialOfferViewBagList();
+            SpecialOfferViewBagList();
 
             var values = await _specialOfferService.GetAllSpecialOfferAsync();
             return View(values);
         }
-
 
         [HttpGet]
         [Route("CreateSpecialOffer")]
@@ -49,7 +49,7 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> CreateSpecialOffer(CreateSpecialOfferDto createSpecialOfferDto)
         {
-            await _specialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);   
+            await _specialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);
             return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
         }
 

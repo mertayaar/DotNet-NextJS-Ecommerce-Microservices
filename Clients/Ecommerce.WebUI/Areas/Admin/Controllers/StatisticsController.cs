@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
-﻿using Ecommerce.WebUI.Services.StatisticServices.CatalogStatisticServices;
+using Ecommerce.WebUI.Services.StatisticServices.CatalogStatisticServices;
 using Ecommerce.WebUI.Services.StatisticServices.DiscountStatisticServices;
 using Ecommerce.WebUI.Services.StatisticServices.MessageStatisticServices;
 using Ecommerce.WebUI.Services.StatisticServices.ReviewStatisticServices;
@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Statistics")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Statistics")]
 
     public class StatisticsController : Controller
     {

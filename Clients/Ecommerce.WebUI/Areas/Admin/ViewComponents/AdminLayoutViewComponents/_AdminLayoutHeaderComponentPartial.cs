@@ -12,7 +12,6 @@ namespace Ecommerce.WebUI.Areas.Admin.ViewComponents.AdminLayoutViewComponents
         private readonly IUserService _userService;
         private readonly IReviewStatisticService _reviewStatisticService;
 
-
         public _AdminLayoutHeaderComponentPartial(IMessageService messageService, IUserService userService, IReviewStatisticService reviewStatisticService)
         {
             _messageService = messageService;

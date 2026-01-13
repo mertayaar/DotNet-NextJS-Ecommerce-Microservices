@@ -17,12 +17,7 @@ namespace Ecommerce.WebUI.Services.CatalogServices.ProductServices
         public async Task CreateProductAsync(CreateProductDto createProductDto)
         {
             var response = await _httpClient.PostAsJsonAsync<CreateProductDto>("products", createProductDto);
-            if (!response.IsSuccessStatusCode)
-            {
-               var content = await response.Content.ReadAsStringAsync();
-               Console.WriteLine($"[ProductService] CreateProductAsync failed: {response.StatusCode} - {content}");
-               
-            }
+
         }
 
         public async Task DeleteProductAsync(string id)
@@ -59,7 +54,6 @@ namespace Ecommerce.WebUI.Services.CatalogServices.ProductServices
             var values = JsonConvert.DeserializeObject<ApiResponse<List<ResultProductsWithCategoryDto>>>(jsonData);
             return values.Data;
         }
-
 
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {

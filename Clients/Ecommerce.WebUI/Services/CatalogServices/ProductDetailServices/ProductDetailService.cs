@@ -43,12 +43,10 @@ namespace Ecommerce.WebUI.Services.CatalogServices.ProductDetailServices
             return values.Data;
         }
 
-       
         public async Task UpdateProductDetailAsync(UpdateProductDetailDto updateProductDetailDto)
         {
             await _httpClient.PutAsJsonAsync<UpdateProductDetailDto>("productdetails", updateProductDetailDto);
         }
 
-      
     }
 }

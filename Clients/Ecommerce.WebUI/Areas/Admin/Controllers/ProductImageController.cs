@@ -7,7 +7,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/ProductImage")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/ProductImage")]
     public class ProductImageController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

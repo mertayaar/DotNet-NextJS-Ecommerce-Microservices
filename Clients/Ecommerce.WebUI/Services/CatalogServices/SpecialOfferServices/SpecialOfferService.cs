@@ -41,6 +41,5 @@ namespace Ecommerce.WebUI.Services.CatalogServices.SpecialOfferServices
             await _httpClient.PutAsJsonAsync<UpdateSpecialOfferDto>("specialoffers", updateSpecialOfferDto);
         }
 
-     
     }
 }

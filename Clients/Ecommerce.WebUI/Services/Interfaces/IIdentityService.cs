@@ -4,7 +4,7 @@ namespace Ecommerce.WebUI.Services.Interfaces
 {
     public interface IIdentityService
     {
-        Task<bool> SignIn(SignInDto signInDto);
+        Task<(bool IsSuccess, string ErrorMessage)> SignIn(SignInDto signInDto);
         Task<bool> GetRefreshToken();
     }
 }

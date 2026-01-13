@@ -7,10 +7,10 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/ProductDetail")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/ProductDetail")]
     public class ProductDetailController : Controller
     {
-       
 
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -18,7 +18,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-   
 
         [Route("UpdateProductDetail/{id}")]
         [HttpGet]

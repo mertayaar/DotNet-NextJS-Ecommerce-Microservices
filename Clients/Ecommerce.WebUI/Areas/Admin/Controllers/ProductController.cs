@@ -12,14 +12,14 @@ using Ecommerce.WebUI.Services.ImageUpload;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Product")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Product")]
     public class ProductController : Controller
     {
 
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly IImageUploadService _imageUploadService;
-        
 
         public ProductController(IProductService productService, ICategoryService categoryService, IImageUploadService imageUploadService)
         {
@@ -52,8 +52,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View(values);
         }
 
-
-
         [Route("CreateProduct")]
         [HttpGet]
         public async Task<IActionResult> CreateProduct()
@@ -71,29 +69,22 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-
         [Route("CreateProduct")]
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto, IFormFile ProductImage)
         {
-            Console.WriteLine($"[CreateProduct] Called. ProductImage null? {ProductImage == null}, Count: {ProductImage?.Length}");
-            
+
             if (ProductImage != null && ProductImage.Length > 0)
             {
-                Console.WriteLine($"[CreateProduct] Uploading image: {ProductImage.FileName}");
+
                 var imageUrl = await _imageUploadService.UploadAsync(ProductImage, "products");
-                Console.WriteLine($"[CreateProduct] Upload result URL: {imageUrl}");
-                
+
                 if (!string.IsNullOrEmpty(imageUrl))
                 {
                     createProductDto.ProductImageUrl = imageUrl;
                 }
             }
-            else
-            {
-                 Console.WriteLine("[CreateProduct] No image provided or empty.");
-            }
-            
+
             await _productService.CreateProductAsync(createProductDto);
             return RedirectToAction("ProductListWithCategory", "Product", new { area = "Admin" });
         }
@@ -136,8 +127,7 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
                     updateProductDto.ProductImageUrl = imageUrl;
                 }
             }
-            
-            
+
             await _productService.UpdateProductAsync(updateProductDto);
 
             return RedirectToAction("ProductListWithCategory", "Product", new { area = "Admin" });

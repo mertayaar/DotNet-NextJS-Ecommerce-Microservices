@@ -10,7 +10,7 @@ namespace Ecommerce.WebUI.Services.DiscountServices
         public DiscountService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-        }   
+        }
 
         public async Task<GetDiscountCodeDetailByCode>? GetDiscountCode(string code)
         {

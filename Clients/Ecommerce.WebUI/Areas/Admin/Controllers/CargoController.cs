@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Authorization;
-﻿using Ecommerce.DtoLayer.CargoDtos.CargoCompanyDtos;
+using Ecommerce.DtoLayer.CargoDtos.CargoCompanyDtos;
 using Ecommerce.WebUI.Services.CargoServices.CargoCompanyServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/Cargo")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/Cargo")]
 
     public class CargoController : Controller
     {

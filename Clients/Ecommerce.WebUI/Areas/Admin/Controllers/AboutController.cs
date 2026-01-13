@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
+    [AllowAnonymous]
     [Route("Admin/About")]
     public class AboutController : Controller
     {
@@ -34,7 +35,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View(values);
         }
 
-
         [HttpGet]
         [Route("CreateAbout")]
 
@@ -51,7 +51,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         {
             await _aboutService.CreateAboutAsync(createAboutDto);
             return RedirectToAction("Index", "About", new { area = "Admin" });
-
 
         }
 

@@ -8,7 +8,8 @@ using System.Text;
 namespace Ecommerce.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]    [Route("Admin/SponsorBrand")]
+    [Authorize(Roles = "Admin")]
+    [Route("Admin/SponsorBrand")]
     public class SponsorBrandController : Controller
     {
         private readonly ISponsorBrandService _sponsorBrandService;
@@ -33,7 +34,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             return View(values);
         }
 
-
         [HttpGet]
         [Route("CreateSponsorBrand")]
 
@@ -50,7 +50,6 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
         {
             await _sponsorBrandService.CreateSponsorBrandAsync(createSponsorBrandDto);
             return RedirectToAction("Index", "SponsorBrand", new { area = "Admin" });
-
 
         }
 

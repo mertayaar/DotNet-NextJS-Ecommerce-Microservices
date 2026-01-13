@@ -23,21 +23,19 @@ namespace Ecommerce.WebUI.Services.ImageUpload
             try
             {
                 _logger.LogInformation("Starting image upload for {FileName}", file.FileName);
-                
+
                 using var content = new MultipartFormDataContent();
                 using var fileStream = file.OpenReadStream();
                 using var streamContent = new StreamContent(fileStream);
-                
+
                 streamContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
                 content.Add(streamContent, "file", file.FileName);
 
-                
-                
                 var requestUrl = $"{_serviceApiSettings.OcelotUrl}/services/images/GoogleCloudImageUpload/upload?folder={folder}";
                 _logger.LogInformation("Sending POST request to {Url}", requestUrl);
-                
+
                 var response = await _httpClient.PostAsync(requestUrl, content);
-                
+
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();

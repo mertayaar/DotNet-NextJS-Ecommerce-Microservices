@@ -7,11 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace Ecommerce.WebUI.Handlers
 {
-    
-    
-    
-    
-    
+
     public class ClientCredentialTokenHandler : DelegatingHandler
     {
         private readonly IClientCredentialTokenService _clientCredentialTokenService;
@@ -33,7 +29,7 @@ namespace Ecommerce.WebUI.Handlers
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                
+
                 token = await _clientCredentialTokenService.GetToken();
                 if (!string.IsNullOrEmpty(token))
                 {

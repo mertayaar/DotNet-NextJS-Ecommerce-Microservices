@@ -4,6 +4,6 @@ namespace Ecommerce.WebUI.Services.LocalizationServices
 {
     public interface ILocalizationService
     {
-       public LocalizedString GetLocalizeString(string key);
+        public LocalizedString GetLocalizeString(string key);
     }
 }

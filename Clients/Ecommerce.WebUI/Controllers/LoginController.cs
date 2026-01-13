@@ -18,8 +18,6 @@ namespace Ecommerce.WebUI.Controllers
     {
         private readonly IIdentityService _identityService;
 
-
-
         public LoginController(IIdentityService identityService)
         {
             _identityService = identityService;
@@ -35,15 +33,14 @@ namespace Ecommerce.WebUI.Controllers
         public async Task<IActionResult> Index(SignInDto signInDto)
         {
             var result = await _identityService.SignIn(signInDto);
-            if (result)
+            if (result.IsSuccess)
             {
                 return RedirectToAction("Index", "Statistics", new { area = "Admin" });
             }
-            
-            ModelState.AddModelError("", "Invalid username or password.");
+
+            ModelState.AddModelError("", result.ErrorMessage);
             return View(signInDto);
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Logout()

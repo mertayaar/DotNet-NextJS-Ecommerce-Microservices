@@ -41,6 +41,5 @@ namespace Ecommerce.WebUI.Services.CatalogServices.ContactServices
             await _httpClient.PutAsJsonAsync<UpdateContactDto>("contacts", updateContactDto);
         }
 
-       
     }
 }
