@@ -25,7 +25,7 @@ echo "Starting IdentityServer..."
 dotnet run --project Services/Identity/Ecommerce.IdentityServer/Ecommerce.IdentityServer.csproj --urls "http://localhost:5001" > identity.log 2>&1 &
 
 echo "Starting Ocelot Gateway..."
-dotnet run --project Gateways/Ecommerce.OcelotGateway/Ecommerce.OcelotGateway.csproj --urls "http://localhost:5000" > ocelot.log 2>&1 &
+dotnet run --project Gateways/Ecommerce.OcelotGateway/Ecommerce.OcelotGateway.csproj --urls "http://*:5000" > ocelot.log 2>&1 &
 
 echo "Starting Catalog Service..."
 dotnet run --project Services/Catalog/Ecommerce.Catalog/Ecommerce.Catalog.csproj --urls "http://localhost:7220" > catalog.log 2>&1 &
@@ -56,7 +56,7 @@ dotnet run --project Services/Images/Ecommerce.Images/Ecommerce.Images.csproj --
 
 
 echo "Starting BFF Service..."
-dotnet run --project Services/BFF/Ecommerce.BFF/Ecommerce.BFF.csproj --urls "http://localhost:5500" > bff.log 2>&1 &
+dotnet run --project Services/BFF/Ecommerce.BFF/Ecommerce.BFF.csproj --urls "http://*:5500" > bff.log 2>&1 &
 
 echo "Starting Next.js UI..."
 cd Clients/Ecommerce.NextJS

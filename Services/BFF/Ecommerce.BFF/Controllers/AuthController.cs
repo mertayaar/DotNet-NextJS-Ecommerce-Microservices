@@ -14,13 +14,6 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.BFF.Controllers
 {
-    
-    
-    
-    
-    
-    
-    
     [ApiController]
     [Route("auth")]
     public class AuthController : ControllerBase
@@ -49,10 +42,6 @@ namespace Ecommerce.BFF.Controllers
             _clientBaseUrl = _configuration["ServiceApiSettings:Client:BaseUrl"]!;
         }
 
-        
-        
-        
-        
         [HttpGet("login")]
         public IActionResult Login([FromQuery] string returnUrl = "/")
         {
@@ -88,14 +77,6 @@ namespace Ecommerce.BFF.Controllers
             return Redirect(authUrl);
         }
 
-        
-        
-        
-        
-        
-        
-        
-        
         [HttpPost("login-credentials")]
         public async Task<IActionResult> LoginWithCredentials([FromBody] LoginRequest request)
         {
@@ -106,13 +87,8 @@ namespace Ecommerce.BFF.Controllers
                 {
                     return BadRequest(new { message = "Username and password are required" });
                 }
-
-                
                 var returnUrl = ValidateReturnUrl(request.ReturnUrl);
-
-                
                 var tokenResponse = await ExchangePasswordForTokens(request.Username, request.Password);
-
                 if (tokenResponse == null)
                 {
                     
@@ -171,13 +147,6 @@ namespace Ecommerce.BFF.Controllers
                 return StatusCode(500, new { message = "An error occurred during login" });
             }
         }
-
-        
-        
-        
-        
-        
-        
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
@@ -226,11 +195,6 @@ namespace Ecommerce.BFF.Controllers
             }
         }
 
-
-        
-        
-        
-        
         [HttpGet("callback")]
         public async Task<IActionResult> Callback([FromQuery] string code, [FromQuery] string state)
         {
@@ -324,11 +288,6 @@ namespace Ecommerce.BFF.Controllers
                 return StatusCode(500, $"Authentication error: {ex.Message}");
             }
         }
-
-        
-        
-        
-        
         [HttpGet("user")]
         public async Task<IActionResult> GetUser()
         {
@@ -384,10 +343,6 @@ namespace Ecommerce.BFF.Controllers
             }
         }
 
-        
-        
-        
-        
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshToken()
         {
@@ -447,11 +402,6 @@ namespace Ecommerce.BFF.Controllers
                 return StatusCode(500, $"Refresh error: {ex.Message}");
             }
         }
-
-        
-        
-        
-        
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
@@ -468,11 +418,6 @@ namespace Ecommerce.BFF.Controllers
 
             return Ok(new { success = true, message = "Logged out" });
         }
-
-        
-        
-        
-        
         [HttpGet("status")]
         public async Task<IActionResult> GetStatus()
         {
@@ -491,16 +436,6 @@ namespace Ecommerce.BFF.Controllers
                 tokenExpired = tokens?.ExpiresAt < DateTime.UtcNow
             });
         }
-
-        
-        
-        
-
-        
-        
-        
-        
-        
         [HttpPost("admin-login")]
         public async Task<IActionResult> AdminLogin([FromBody] LoginRequest request)
         {
@@ -555,12 +490,6 @@ namespace Ecommerce.BFF.Controllers
                 return StatusCode(500, new { success = false, message = "An error occurred during login" });
             }
         }
-
-        
-        
-        
-        
-        
         [HttpPost("get-token")]
         public async Task<IActionResult> GetToken([FromBody] GetTokenRequest request)
         {
@@ -606,11 +535,6 @@ namespace Ecommerce.BFF.Controllers
                 expiresAt = tokens.ExpiresAt
             });
         }
-
-        
-        
-        
-        
         [HttpPost("admin-logout")]
         public async Task<IActionResult> AdminLogout([FromBody] LogoutRequest request)
         {
@@ -653,10 +577,6 @@ namespace Ecommerce.BFF.Controllers
             public string SessionId { get; set; } = string.Empty;
         }
 
-        
-        
-        
-
         private string GenerateCodeVerifier()
         {
             var bytes = new byte[32];
@@ -694,10 +614,6 @@ namespace Ecommerce.BFF.Controllers
                 .Replace('/', '_');
         }
 
-        
-        
-        
-
         private UserInfo ExtractUserInfoFromIdToken(string idToken)
         {
             var handler = new JwtSecurityTokenHandler();
@@ -722,14 +638,6 @@ namespace Ecommerce.BFF.Controllers
             };
         }
 
-        
-        
-        
-
-        
-        
-        
-        
         private async Task<TokenResponse?> ExchangePasswordForTokens(string username, string password)
         {
             try
@@ -766,9 +674,6 @@ namespace Ecommerce.BFF.Controllers
             }
         }
 
-        
-        
-        
         private string GenerateSecureSessionId()
         {
             var bytes = new byte[32];
@@ -779,9 +684,6 @@ namespace Ecommerce.BFF.Controllers
             return Base64UrlEncode(bytes);
         }
 
-        
-        
-        
         private string ValidateReturnUrl(string? returnUrl)
         {
             if (string.IsNullOrWhiteSpace(returnUrl))
@@ -803,11 +705,6 @@ namespace Ecommerce.BFF.Controllers
 
             return returnUrl;
         }
-
-        
-        
-        
-
         public class LoginRequest
         {
             public string Username { get; set; } = string.Empty;

@@ -25,17 +25,17 @@ builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("Redi
 builder.Services.AddSingleton<RedisService>(sp =>
 {
     var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
-    Console.WriteLine($"[BFF] Attempting to connect to Redis at {redisSettings.Host}:{redisSettings.Port}, DB: {redisSettings.Db}...");
+
     try 
     {
         var redis = new RedisService(redisSettings.Host, redisSettings.Port, redisSettings.Db);
         redis.Connect();
-        Console.WriteLine("[BFF] Successfully connected to Redis.");
+
         return redis;
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"[BFF] CRITICAL ERROR: Failed to connect to Redis: {ex.Message}");
+
         throw;
     }
 });

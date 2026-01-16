@@ -42,7 +42,7 @@ export default function ContactPage() {
     })
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
+
         toast.success("Message sent!", {
             description: "We'll get back to you as soon as possible.",
         })

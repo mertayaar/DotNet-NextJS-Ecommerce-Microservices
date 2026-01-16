@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Services\SignalRRealTime\Ecommerce.SignalRRealTimeAPi\Ecommerce.SignalRRealTimeAPi.csproj" />
+
     <ProjectReference Include="..\..\Shared\Ecommerce.Common\Ecommerce.Common.csproj" />
     <ProjectReference Include="..\..\Shared\Ecommerce.DtoLayer\Ecommerce.DtoLayer.csproj" />
   </ItemGroup>
