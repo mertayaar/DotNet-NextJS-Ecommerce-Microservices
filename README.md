@@ -126,10 +126,19 @@
    ```
 
 5. **Start all services**
+
+   **macOS / Linux:**
    ```bash
    chmod +x start_all.sh
    ./start_all.sh
    ```
+
+   **Windows (PowerShell):**
+   ```powershell
+   .\start_all.ps1
+   ```
+
+   > 💡 **Tip**: Windows users can also use [Git Bash](https://git-scm.com/downloads) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/) to run the bash script.
 
 6. **Access the applications**
 
